@@ -31,10 +31,10 @@ public class ProductService {
     public List<ProductResponse> getAllProducts() {
         List<Product> products = productRepository.findAll();
 
-        return products.stream().map(this::mapToProductResponse).toList();
+        return products.stream().map(this::convertToProductResponse).toList();
     }
 
-    private ProductResponse mapToProductResponse(Product product) {
+    private ProductResponse convertToProductResponse(Product product) {
         return ProductResponse.builder()
                 .id(product.getId())
                 .name(product.getName())
